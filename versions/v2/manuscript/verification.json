@@ -1,0 +1,24 @@
+{
+  "arithmetic": "exact rational arithmetic and coefficient comparison",
+  "phase_support": "all 64 three-qubit matrix positions and all 16 two-qubit positions",
+  "square_completion": "identically zero difference in four polynomial variables",
+  "three_qubit": {
+    "rho_gamma": "11/112",
+    "restricted_minimum": "109/23520",
+    "tau_squared_distance": "417965512477/90316800000000",
+    "strict_gap": "84926789/12902400000000",
+    "eta_partial_transpose_minor": "439/2359296",
+    "eta_separability_inequality_violation": "1/512",
+    "eta_distance_lower_bound": "25/11010048",
+    "small_gamma_distance_upper_bound": "1/2097152"
+  },
+  "two_qubit": {
+    "x_state_concurrence": "1/2",
+    "x_state_distance_upper_bound": "7/288",
+    "equal_concurrence_isotropic_distance": "1/12",
+    "smaller_concurrence_isotropic_distance": "4/75",
+    "concurrence_spectra": "Exact characteristic polynomials for the spin-flipped X-state product and the Bell-isotropic matrices",
+    "isotropic_boundary": "Exact equal mixture of six pure product projectors"
+  },
+  "scope": "Finite algebraic checks supplement the product-state inequalities and continuous-parameter proofs in note.tex."
+}

@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Refuting the X-MEMS closest-separable-state conjecture in arXiv:2209.01430v2, Appendix A, Eq. (A11) — Mathesis</title>
+<style>html{color-scheme:light dark}body{max-width:68rem;margin:3rem auto;padding:0 2rem;font:18px/1.7 Georgia,"Noto Serif",serif}header,article{max-width:48rem}h1{font-size:2rem;line-height:1.3;font-weight:500}h2{font-size:1.3rem;margin-top:2rem}a{color:#357053}nav{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;margin:1.4rem 0}.meta{font:15px/1.6 system-ui,sans-serif}p{overflow-wrap:anywhere}footer{margin-top:3rem;font-size:.9rem}@media(max-width:600px){body{margin:1.5rem auto;padding:0 1.2rem}h1{font-size:1.6rem}}</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/contrib/auto-render.min.js" onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}],throwOnError:false})"></script>
+</head><body><header><a href="https://papers.trureturing.org/">Mathesis papers</a><h1>Refuting the X-MEMS closest-separable-state conjecture in arXiv:2209.01430v2, Appendix A, Eq. (A11)</h1><p>Haobo Ma, Wenlin Zhang</p></header><nav><a href="../">论文</a></nav><article><p>衡量一个量子态离完全没有纠缠有多远时，能否只在形式整齐的一类候选态中寻找最近者？马昊博与张文林对Consiglio、Apollaro和Wieśniak的猜想给出否定答案：一个三量子比特例子中，明确无纠缠的近似态比所有满足猜想形式的候选态都更接近目标。</p>
+<p>量子比特是二能级系统。联合态的密度矩阵以对角元记录结果概率，以非对角元描述量子相干。独立制备各比特，再随机混合这些制备，得到的态称为完全可分态。本文的距离是对应矩阵元之差的绝对值平方之和，即希尔伯特—施密特范数的平方。在完全可分态中求其最小值，可从几何上衡量偏离完全可分性的程度。若能合理限制最近态的形式，搜索就会简化。</p>
+<p>原猜想出自上述作者的2022年工作，同时限制相干和对角概率。本文研究三比特低分支的一个实例：目标在000、001、010、011、111上的概率均为五分之一，其余为零，000与111间的相干为11/112。猜想要求候选态的端点概率相等，001、010、011三者相等，100、101、110三者也相等。这还容许真正最近的完全可分态吗？</p>
+<p>作者证明受限最小值恰为109/23520。单比特矩阵的正性用对角概率约束相干，算术—几何平均不等式将其转成混合后仍成立的线性约束，再配方得到距离下界。达到下界的构造是：平均九个带相关相位的乘积态，各比特取零的概率依次为9/10、1/2、1/2，再以5/6和1/6的权重与111态混合。将后两个局部概率改成199/400，所得十项乘积态混合的距离严格更小。无须找到全局最优解，猜想已被推翻。</p>
+<p>更好的候选态仍只有两个角上的非对角元：它打破的是概率等式，而非稀疏性。对称性不足以支持那些等式。只交换000和111保持目标不变，却把000与001的乘积叠加态变成111与001的纠缠叠加态，离开可行集合。相关局部相位及除第一比特外的比特置换则保持完全可分性。对此取平均能支持稀疏结构和相应的置换不变性，却不能推出猜想的全部等式。</p>
+<p>相关例子还区分了先前讨论联系起来的概念。一个三比特态对每种“一比特与其余两比特”划分都可分，也通过部分转置这一必要的矩阵正性检验，却不完全可分：不同划分的分解未必兼容。两比特例子说明，另一纠缠指标“并发度”既不能决定该距离，也不能一致地排序：并发度相同，距离可不同；并发度更大，距离反可更小。作者也给出多比特对应例子，但这些反例不否定原工作的另外的两比特距离公式。</p>
+<p>一个正面结论仍独立成立。若n比特态仅在两个对角角点之间有相干，且其绝对值随比特数增加趋于g，作者证明距离趋于2g²。删去这些非对角元得到完全可分的对角态，给出上界。每个局部相干至多为二分之一，故完全可分态的角点相干至多为2⁻ⁿ；无法消除的角点差异给出趋于同值的下界。对角概率可任意选择。</p>
+<p>稿件给出上述结果的书面论证。所述有限计算核对若干精确恒等式和常数，并非搜索所有可分态。所述Lean形式化覆盖普遍形式猜想的反例；受限最小值的取到、对称性约化和后续推论有书面证明，不属这里声称的形式化范围。所举目标的真正全局最小值及一般有限比特数下最近态的描述仍待确定。本文精确指出一种优化捷径失效，同时保留大系统极限；先前一般算法及其性能不在讨论范围内。</p></article><footer><a href="https://mathesis-omega-research.apps.chrono-ai.fun/contribute">Contribute to the mathematics and its formalization</a></footer></body></html>

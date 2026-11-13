@@ -1,0 +1,23 @@
+{
+  "id": "consiglio-apollaro-wiesniak-2022-xmems-css-shape",
+  "revision": 2,
+  "problem_ids": [
+    "consiglio-apollaro-wiesniak-2022-xmems-css-shape"
+  ],
+  "topic": "The closest-fully-separable-state shape conjecture in arXiv:2209.01430v2, Appendix A.3, equation (A11)",
+  "title": "Refuting the X-MEMS closest-separable-state conjecture in arXiv:2209.01430v2, Appendix A, Eq. (A11)",
+  "creators": [
+    {
+      "name": "Ma, Haobo",
+      "affiliation": "ChronoAI Pte Ltd, Singapore"
+    },
+    {
+      "name": "Zhang, Wenlin",
+      "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore"
+    }
+  ],
+  "abstract": "We refute the closest-fully-separable-state shape conjecture of Consiglio, Apollaro and Wieśniak, arXiv:2209.01430v2, Appendix A, Eq. (A11), already for three qubits on the low branch at gamma = 11/112. Every fully separable state of the proposed shape has squared Hilbert–Schmidt distance at least 109/23520, whereas an explicit mixture of ten pure product states has distance 417965512477/90316800000000. The counterexample and exact restricted minimum have self-contained written proofs, as do related counterexamples to the full-separability and concurrence comparisons in the posing source. An elementary bound also establishes its large-qubit limit without the conjectured shape.",
+  "summary": "An exact ten-product-state mixture beats the entire conjectured three-qubit closest-state family. Written corollaries separate PPT from full separability, disprove two-qubit concurrence comparisons, establish exact multipartite comparison failures and prove a general corner-coherence limit.",
+  "license": "cc-by-4.0",
+  "evidence_url": "https://github.com/the-omega-institute/trureturing/blob/83b70a1d0d6a58bb32521c741805d845d401c5f8/D5/S3/Quantum/Entanglement/GeometricMeasure/XMemsClosestSeparableShapeRefutation.lean"
+}

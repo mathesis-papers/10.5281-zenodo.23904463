@@ -1,0 +1,439 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xurl}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newcommand{\Sep}{\mathcal S}
+\newcommand{\ket}[1]{\lvert #1\rangle}
+\newcommand{\bra}[1]{\langle #1\rvert}
+\newcommand{\proj}[1]{\ket{#1}\!\bra{#1}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\diag}{\operatorname{diag}}
+\newcommand{\Rea}{\operatorname{Re}}
+\newcommand{\Ima}{\operatorname{Im}}
+\newcommand{\E}{E_{\mathrm{HS}}}
+\newcommand{\D}{D_{\mathrm{HS}}}
+\hypersetup{pdftitle={Refuting the X-MEMS closest-separable-state conjecture in arXiv:2209.01430v2, Appendix A, Eq. (A11)},pdfauthor={Haobo Ma and Wenlin Zhang}}
+\title{Refuting the X-MEMS closest-separable-state conjecture in\break arXiv:2209.01430v2, Appendix A, Eq.~(A11)}
+\author{Haobo Ma\thanks{ChronoAI Pte Ltd, Singapore.}\and
+Wenlin Zhang\thanks{National University of Singapore; ChronoAI Pte Ltd, Singapore.}}
+\date{2 November 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We refute the closest-fully-separable-state shape conjecture of Consiglio,
+Apollaro and Wie\'sniak, arXiv:2209.01430v2, Appendix A, Eq.~(A11), already
+for three qubits on the low branch at $\gamma=11/112$.
+Every fully separable state of the proposed shape has squared
+Hilbert--Schmidt distance at least $109/23520$, whereas an explicit mixture
+of ten pure product states has distance
+$417965512477/90316800000000$.
+The counterexample and exact restricted minimum have self-contained written
+proofs, as do related counterexamples to the full-separability and concurrence
+comparisons in the posing source. An elementary bound also establishes its large-qubit limit
+without the conjectured shape.
+\end{abstract}
+
+\section{The conjecture and its three-qubit instance}
+Consiglio, Apollaro and Wie\'sniak call the proposed form of the closest
+separable state a conjecture in Appendix A.3 of \cite{CAW}, immediately
+before Eq.~(A11). Their closest separable state is closest among
+\emph{fully} separable states, as specified in Sections I--II, not among
+positive-partial-transpose states. The same conjecture occurs in
+\cite[Appendix C.3, Eq.~(C.12)]{Thesis}. We use the source's convention that
+``distance'' means the squared Hilbert--Schmidt norm:
+\[
+ \D(\rho,\sigma)=\Tr((\rho-\sigma)^2),\qquad
+ \E(\rho)=\min_{\sigma\in\Sep_n}\D(\rho,\sigma),
+\]
+where $\Sep_n$ is the convex hull of pure $n$-qubit product projectors.
+This hull is compact in finite dimension, and strict convexity of the squared
+norm gives a unique closest state. Products of local mixed density matrices
+give the same hull, by expanding their spectral decompositions.
+
+Order the three-qubit basis as $000,001,\ldots,111$, with the first qubit
+most significant. On the low branch of Eqs.~(A1)--(A2), put
+\begin{equation}\label{eq:rho}
+ \rho=\diag(1/5,1/5,1/5,1/5,0,0,0,1/5)
+       +\frac{11}{112}\bigl(\ket{000}\bra{111}+\ket{111}\bra{000}\bigr).
+\end{equation}
+It is a density matrix: its corner block has eigenvalues
+$1/5\pm11/112$, and the other diagonal entries are nonnegative.
+For $n=3$, the family in Eq.~(A11) is
+\begin{equation}\label{eq:shape}
+ S(a,b,d)=\diag\left(\frac a2,\frac b3,\frac b3,\frac b3,
+  \frac{1-a-b}{3},\frac{1-a-b}{3},\frac{1-a-b}{3},\frac a2\right)
+  +d\ket{000}\bra{111}+\bar d\ket{111}\bra{000},
+\end{equation}
+with $a,b\ge0$, $a+b\le1$, and $|d|\le a/2$.
+Full separability is an additional requirement.
+
+\begin{theorem}\label{thm:main}
+For the state \eqref{eq:rho},
+\begin{equation}\label{eq:comparison}
+ \E(\rho)\le\frac{417965512477}{90316800000000}
+ <\min_{S(a,b,d)\in\Sep_3}\D(\rho,S(a,b,d))
+ =\frac{109}{23520}.
+\end{equation}
+Thus Eqs.~(A8), (A11), and their common form in Eq.~(16) of \cite{CAW}
+do not contain a closest fully separable state at this instance.
+\end{theorem}
+The rational competitor and separability inequality below are formalized
+in \cite{Lean}. The proof here also identifies a state attaining the
+restricted minimum. Matrix-element separability inequalities provide the
+general setting for this argument \cite{GS,CHK}; the particular inequality
+needed here is derived directly.
+
+\section{A supporting inequality and the restricted minimum}
+Write $p_{xyz}=\sigma_{xyz,xyz}$ and $z=\sigma_{000,111}$.
+Every fully separable three-qubit state satisfies
+\begin{equation}\label{eq:witness}
+ \Rea z\le
+ \frac15\left(\frac{p_{001}}6+\frac{3p_{110}}2\right)
+ +\frac45\left(\frac{p_{000}}{12}+\frac{p_{011}}{12}
+                +\frac{3p_{101}}4+\frac{3p_{110}}4\right).
+\end{equation}
+To prove this, consider a product of local density matrices with diagonals
+$(\alpha_j,\beta_j)$, $j=1,2,3$. Positivity of each $2\times2$ matrix gives
+$|z|\le\sqrt{\prod_j\alpha_j\beta_j}$. The weighted arithmetic--geometric
+mean inequality gives
+\[
+ |z|\le\sqrt{p_{001}p_{110}}
+       \le p_{001}/6+3p_{110}/2.
+\]
+For a second bound, first use
+$\sqrt{\alpha_1\beta_1}\le\alpha_1/6+3\beta_1/2$.
+Multiply by $R=\sqrt{\alpha_2\beta_2\alpha_3\beta_3}$, and use
+\[
+ R\le(\alpha_2\alpha_3+\beta_2\beta_3)/2,
+ \qquad R\le(\alpha_2\beta_3+\beta_2\alpha_3)/2
+\]
+in the terms with coefficients $\alpha_1/6$ and $3\beta_1/2$, respectively.
+This gives the second parenthesis in \eqref{eq:witness}.
+Both bounds are linear in matrix entries after taking $\Rea z$.
+They therefore pass to convex mixtures; taking weights $1/5$ and $4/5$
+proves \eqref{eq:witness}.
+
+For \eqref{eq:shape}, set
+\[
+ A=a/2,\quad B=b/3,\quad C=(1-a-b)/3,\quad x=\Rea d,\quad y=\Ima d.
+\]
+Then \eqref{eq:witness} says
+\begin{equation}\label{eq:halfspace}
+ h:=A/15+B/10+3C/2-x=\frac12-\frac7{15}(a+b)-x\ge0.
+\end{equation}
+Expanding the distance and completing squares gives the exact identity
+\begin{align}\label{eq:squares}
+ \D(\rho,S)
+ &=2(1/5-A)^2+3(1/5-B)^2+3C^2+2(11/112-x)^2+2y^2\notag\\
+ &=\frac{109}{23520}+2(A-3/16)^2+3(B-3/16)^2
+       +3(C-1/48)^2\notag\\
+ &\hspace{18mm}+2(x-1/16)^2+2y^2+\frac h7.
+\end{align}
+This proves the lower bound for every fully separable matrix of the
+proposed shape, including complex $d$ and all boundary parameters.
+
+Here is an explicit separable state attaining equality.
+For $0\le t\le1$ and $r\in\mathbb Z/3\mathbb Z$, define
+\[
+ v(t,r)=\sqrt t\ket0+\omega^r\sqrt{1-t}\ket1,
+ \qquad\omega=e^{2\pi i/3},
+\]
+and the product-state average
+\begin{equation}\label{eq:twirl}
+ T(t_1,t_2,t_3)=\frac19\sum_{r,s=0}^2
+  \proj{v(t_1,r)\otimes v(t_2,s)\otimes v(t_3,-r-s)}.
+\end{equation}
+The vectors are normalized, so $T$ is fully separable. Its diagonal entry
+at a word $q$ is $\prod_j t_j^{1-q_j}(1-t_j)^{q_j}$, and its corner
+coherence is $\prod_j\sqrt{t_j(1-t_j)}$.
+Every other off-diagonal entry is zero: averaging the two characters forces
+$q_1-q'_1=q_3-q'_3$ and $q_2-q'_2=q_3-q'_3$ modulo $3$.
+Each difference lies in $\{-1,0,1\}$, so they must be equal as integers.
+This leaves the diagonal and the two opposite corners only.
+Consequently
+\begin{equation}\label{eq:sstar}
+ S_*:=\frac56T(9/10,1/2,1/2)+\frac16\proj{111}
+     =S(3/8,9/16,1/16)
+\end{equation}
+is fully separable and makes every nonconstant term in
+\eqref{eq:squares} zero. This proves the equality in \eqref{eq:comparison}.
+
+\section{A closer product-state mixture}
+Now change the last two parameters in \eqref{eq:sstar}:
+\begin{equation}\label{eq:tau}
+ \tau=\frac56T(9/10,199/400,199/400)+\frac16\proj{111}.
+\end{equation}
+This is a convex mixture of ten pure product projectors, nine with weight
+$5/54$ and one with weight $1/6$. In binary order, its diagonal is
+\[
+ \frac1{1920000}(356409,359991,359991,363609,
+                 39601,39999,39999,360401),
+\]
+and its only off-diagonal entries are
+$\tau_{000,111}=\tau_{111,000}=119997/1920000$.
+For example, the corner coherence of the unweighted average is
+\[
+ \sqrt{\tfrac9{10}\tfrac1{10}}\,
+ \left(\sqrt{\tfrac{199}{400}\tfrac{201}{400}}\right)^2
+ =\frac{119997}{1600000}.
+\]
+Entrywise squaring gives
+\begin{equation}\label{eq:gap}
+ \D(\rho,\tau)=\frac{417965512477}{90316800000000},\qquad
+ \frac{109}{23520}-\D(\rho,\tau)
+   =\frac{84926789}{12902400000000}>0.
+\end{equation}
+Together with \eqref{eq:squares}, this proves Theorem~\ref{thm:main}.
+The state $\tau$ still respects interchange of qubits 2 and 3; it violates
+the additional population equalities in \eqref{eq:shape}.
+In particular, it remains diagonal apart from the corner coherence.
+The obstruction is to the population restrictions, not to this sparse support.
+
+Target invariance alone does not justify those restrictions. The unitary
+swapping only $\ket{000}$ and $\ket{111}$ fixes $\rho$ but sends the product
+$(\ket{000}+\ket{001})/\sqrt2$ to
+$(\ket{111}+\ket{001})/\sqrt2$, which has Schmidt rank two across the
+first-qubit cut. It does not preserve the feasible set.
+By contrast, permutations of qubits $2,\ldots,n$ and correlated local
+diagonal phases do preserve full separability and fix a low-branch target.
+Averaging over these symmetries cannot increase its squared distance.
+In particular, the finite local-phase average used in \eqref{eq:twirl}
+extends to $n$ qubits, with the last phase the negative sum of the first
+$n-1$ phases. The same character argument retains exactly the diagonal and
+corner coherences. Thus a closest state can always be chosen with this
+sparse support and with populations invariant under those qubit permutations;
+the unjustified additional equalities are what must be removed.
+
+\section{Related statements in the posing source}
+\subsection{The zero-negativity condition is not full separability}
+\begin{corollary}\label{cor:ppt}
+The condition in \cite[Eq.~(A10)]{CAW} is insufficient for full separability
+of the family (A8). The state
+\[
+ \eta=S(5/16,5/8,33/512)
+\]
+is positive under partial transpose across every one-versus-two cut and is
+separable across each such cut, but is not fully separable.
+\end{corollary}
+\begin{proof}
+Its diagonal entries are $5/32$ at the endpoints, $5/24$ at the three
+upper interior words, and $1/48$ at the lower interior words.
+The original corner block is positive since $33/512<5/32$.
+Each partial transpose has one potentially nonpositive $2\times2$ block,
+whose determinant is
+\[
+ \frac5{24}\frac1{48}-\left(\frac{33}{512}\right)^2
+ =\frac{439}{2359296}>0.
+\]
+For any fixed cut, the coherent block acts on a $2\otimes2$ subspace
+spanned on the other side by $\ket{00}$ and $\ket{11}$.
+It is separable by the $2\otimes2$ positive-partial-transpose criterion
+\cite{HHH}; the remaining diagonal terms are product projectors across that
+cut. Nevertheless, \eqref{eq:halfspace} requires
+$\Rea d\le1/16$, whereas $33/512=1/16+1/512$.
+\end{proof}
+This example concerns the sufficiency of the parameter condition, not
+whether a particular solution of the source's restricted optimization is
+bound entangled. It also excludes full-separability sufficiency for (A12)
+in general, since (A10) is its three-qubit specialization.
+
+\subsection{Concurrence does not determine the squared distance}
+The two-qubit comparisons in \cite[Eqs.~(17)--(18)]{CAW} are false.
+Let $R$ have diagonal $(1/3,1/3,0,1/3)$ and real corner coherence $1/4$.
+Its concurrence is $C(R)=1/2$: the square roots in the concurrence formula
+\cite{Wootters} are $7/12,1/12,0,0$.
+A fully separable competitor $Q$ has diagonal
+\[
+ (7/24,1/3,1/12,7/24)
+\]
+and corner coherence $1/6$.
+Indeed, with
+\[
+ T_2(t_1,t_2)=\frac13\sum_{r=0}^2
+ \proj{v(t_1,r)\otimes v(t_2,-r)},
+\]
+one has $Q=\frac34T_2(2/3,1/3)+\frac18\proj{00}+\frac18\proj{11}$.
+Thus $\E(R)\le\D(R,Q)=7/288$.
+
+For $0\le c\le1$, put $P=\proj{\Phi^+}$, where
+$\ket{\Phi^+}=(\ket{00}+\ket{11})/\sqrt2$, and set
+\[
+ J_c=\frac{1+c}{2}P+\frac{1-c}{6}(I-P).
+\]
+Its Bell-basis eigenvalues give $C(J_c)=c$, and
+\begin{equation}\label{eq:isotropic}
+ \E(J_c)=c^2/3.
+\end{equation}
+For completeness, any separable $\sigma$ obeys $\Tr(P\sigma)\le1/2$.
+The traceless matrix $W=P-I/4$ has squared norm $3/4$, so Cauchy--Schwarz
+gives $\D(J_c,\sigma)\ge c^2/3$.
+Equality is attained by $J_0=I/6+P/3$, the equal mixture of the six product
+projectors $\proj{u\otimes\bar u}$, with
+\[
+ u\in\{\ket0,\ket1,(\ket0\pm\ket1)/\sqrt2,
+                       (\ket0\pm i\ket1)/\sqrt2\}.
+\]
+At $c=1/2$, the concurrences of $R$ and $J_c$ agree but
+$\E(R)\le7/288<1/12=\E(J_{1/2})$, disproving (17).
+At $c=2/5$, $C(R)>C(J_c)$ but
+$\E(R)\le7/288<4/75=\E(J_{2/5})$, disproving (18).
+
+The multipartite failures reported in \cite[Eqs.~(19)--(20)]{CAW} also
+have exact examples within three-qubit $X$-states. Corollary~\ref{cor:ppt}
+makes $C_{\mathrm{GME}}(\eta)=0$, while $\E(\eta)>0$.
+Comparison with a diagonal state disproves equivalence of equality.
+For a strict reversal, write \eqref{eq:witness} as
+$\Tr(H\sigma)\le0$, with $H_{000,111}=H_{111,000}=1/2$ and diagonal
+\[
+ (-1/15,-1/30,0,-1/15,0,-3/5,-9/10,0).
+\]
+Then $\Tr(H\eta)=1/512$ and $\Tr(H^2)=42/25$, whence
+\[
+ \E(\eta)\ge\frac{25}{11010048}.
+\]
+The low-branch three-qubit state $\rho_{\epsilon}$ with corner coherence
+$\epsilon=1/2048$ has
+$C_{\mathrm{GME}}(\rho_{\epsilon})=2\epsilon>0$
+by the $X$-state concurrence formula \cite{Rafsanjani}, but its diagonal
+part gives
+\[
+ \E(\rho_{\epsilon})\le2\epsilon^2=\frac1{2097152}
+ <\frac{25}{11010048}\le\E(\eta).
+\]
+Thus the order reversal in (20) holds even with one state separable across
+every bipartition.
+
+\subsection{The upper bound and large-qubit limit}
+\begin{corollary}\label{cor:limit}
+Let $X_n$ be any $n$-qubit density matrix whose only off-diagonal entries
+are the opposite corners $\gamma_n,\bar\gamma_n$. Then
+\begin{equation}\label{eq:limit}
+ 2\bigl(\max\{|\gamma_n|-2^{-n},0\}\bigr)^2
+ \le\E(X_n)\le2|\gamma_n|^2.
+\end{equation}
+Consequently, if $|\gamma_n|\to g$, then $\E(X_n)\to2g^2$.
+\end{corollary}
+\begin{proof}
+The diagonal of $X_n$ is fully separable and gives the upper bound.
+Every local qubit density matrix has off-diagonal magnitude at most $1/2$,
+because $|q_{01}|^2\le q_{00}q_{11}\le1/4$.
+Hence each product, and then every fully separable mixture, has corner
+coherence at most $2^{-n}$. The two corner entries alone contribute at least
+the left side of \eqref{eq:limit} to the squared norm.
+The last assertion follows by squeezing.
+\end{proof}
+This proves the upper bound and the fixed-coherence limit in
+\cite[Eq.~(A14)]{CAW} for normalized X-MEMS, independently of (A11).
+It also covers convergent coherences and arbitrary diagonal populations.
+
+\section{Coverage and verification scope}
+\begin{center}
+\small
+\begin{tabular}{@{}p{0.23\linewidth}p{0.69\linewidth}@{}}
+\toprule
+Source item in \cite{CAW} & Coverage\\
+\midrule
+(16), (A8), (A11) & Refuted at $n=3$, $\gamma=11/112$ by Theorem~\ref{thm:main}; the restricted minimum is exact.\\
+(A10), (A12) & Necessary PPT bounds; not sufficient for full separability, by Corollary~\ref{cor:ppt}.\\
+(17), (18) & Refuted by $R$ and $J_c$, using $c=1/2$ and $2/5$.\\
+(19), (20) & Reported failures proved with $\eta$, a diagonal state, and $\rho_{1/2048}$.\\
+(A14), Fig.~6 bound & Proved by Corollary~\ref{cor:limit}, independently of the shape conjecture.\\
+(A13), GHZ endpoint & Prior formula in \cite[Eq.~(9)]{Pandya}; not a consequence of the refuted shape reduction.\\
+(A5)--(A7), Fig.~4 & Two-qubit formulas not reassessed here; the concurrence counterexamples do not invalidate those formulas.\\
+Figs.~5--6, quartic rule & The shape reduction is invalid as a general certificate; pointwise numerical values and a corrected general formula are not determined here.\\
+Section V, $k$-CSS and algorithm & The general closest-$k$-separable-state algorithm and its performance are not covered.\\
+\bottomrule
+\end{tabular}
+\end{center}
+The main counterexample corresponds to the Lean declaration
+\texttt{result : $\neg$ claim} in the namespace
+\begin{quote}\small\ttfamily
+D5.S3.Quantum.Entanglement.GeometricMeasure.\\
+XMemsClosestSeparableShapeRefutation
+\end{quote}
+The \href{https://github.com/the-omega-institute/trureturing/blob/83b70a1d0d6a58bb32521c741805d845d401c5f8/D5/S3/Quantum/Entanglement/GeometricMeasure/XMemsClosestSeparableShapeRefutation.lean}{pinned Lean file}
+defines the low-branch target, the full parameter family and the
+finite-convex-mixture notion of full separability. Its declaration proves the
+negation of the universal closest-state shape assertion by the instance above.
+The restricted-minimum attainment, the symmetry reduction and the consequences
+in Section~4 have written proofs in this note. The accompanying
+\texttt{verify.py} checks the rational matrices, character support at all
+64 three-qubit matrix positions, the four-variable square-completion identity,
+and the finite constants in the corollaries.
+
+The actual global minimum at \eqref{eq:rho} and an explicit parameterization
+of closest states for general finite $n$ remain to be determined.
+
+\paragraph{License.}
+This note and its accompanying original source and verification code are
+licensed under Creative Commons Attribution 4.0 International (CC BY 4.0),
+\url{https://creativecommons.org/licenses/by/4.0/}.
+
+\begin{thebibliography}{10}
+\bibitem{CAW}
+M.~Consiglio, T.~J.~G.~Apollaro and M.~Wie\'sniak,
+\emph{Variational approach to the quantum separability problem},
+Phys. Rev. A \textbf{106}, 062413 (2022),
+\href{https://doi.org/10.1103/PhysRevA.106.062413}{doi:10.1103/PhysRevA.106.062413}.
+Posing text: \href{https://arxiv.org/abs/2209.01430v2}{arXiv:2209.01430v2},
+Appendix A.3, Eq.~(A11); Sections I--II and IV.
+
+\bibitem{Thesis}
+M.~Consiglio, \emph{Variational Quantum Algorithms for Many-Body Systems},
+Ph.D. thesis, University of Malta (2025),
+\href{https://arxiv.org/abs/2502.11985v1}{arXiv:2502.11985v1},
+Appendix C.3, Eq.~(C.12), printed pp.~118--119.
+
+\bibitem{Lean}
+The Omega Institute, \emph{XMemsClosestSeparableShapeRefutation.lean},
+\texttt{trureturing}, revision
+\texttt{83b70a1d0d6a58bb32521c741805d845d401c5f8}.
+\href{https://github.com/the-omega-institute/trureturing/blob/83b70a1d0d6a58bb32521c741805d845d401c5f8/D5/S3/Quantum/Entanglement/GeometricMeasure/XMemsClosestSeparableShapeRefutation.lean}{Source file and declaration \texttt{result}}.
+
+\bibitem{GS}
+O.~G\"uhne and M.~Seevinck,
+\emph{Separability criteria for genuine multiparticle entanglement},
+New J. Phys. \textbf{12}, 053002 (2010),
+\href{https://doi.org/10.1088/1367-2630/12/5/053002}{doi:10.1088/1367-2630/12/5/053002};
+\href{https://arxiv.org/abs/0905.1349}{arXiv:0905.1349}, Observation 4.
+
+\bibitem{CHK}
+L.~Chen, K.~H.~Han and S.-H.~Kye,
+\emph{Separability criterion for three-qubit states with a four dimensional norm},
+J. Phys. A: Math. Theor. \textbf{50}, 345303 (2017),
+\href{https://doi.org/10.1088/1751-8121/aa7f9a}{doi:10.1088/1751-8121/aa7f9a};
+\href{https://arxiv.org/abs/1705.05557v2}{arXiv:1705.05557v2}, Theorem 2.1.
+
+\bibitem{HHH}
+M.~Horodecki, P.~Horodecki and R.~Horodecki,
+\emph{Separability of mixed states: necessary and sufficient conditions},
+Phys. Lett. A \textbf{223}, 1--8 (1996),
+\href{https://doi.org/10.1016/S0375-9601(96)00706-2}{doi:10.1016/S0375-9601(96)00706-2};
+\href{https://arxiv.org/abs/quant-ph/9605038}{arXiv:quant-ph/9605038}.
+
+\bibitem{Wootters}
+W.~K.~Wootters, \emph{Entanglement of formation of an arbitrary state of two qubits},
+Phys. Rev. Lett. \textbf{80}, 2245--2248 (1998),
+\href{https://doi.org/10.1103/PhysRevLett.80.2245}{doi:10.1103/PhysRevLett.80.2245};
+\href{https://arxiv.org/abs/quant-ph/9709029}{arXiv:quant-ph/9709029}, Eqs.~(9)--(10).
+
+\bibitem{Rafsanjani}
+S.~M.~Hashemi Rafsanjani, M.~Huber, C.~J.~Broadbent and J.~H.~Eberly,
+\emph{Genuinely multipartite concurrence of $N$-qubit $X$ matrices},
+Phys. Rev. A \textbf{86}, 062303 (2012),
+\href{https://doi.org/10.1103/PhysRevA.86.062303}{doi:10.1103/PhysRevA.86.062303};
+\href{https://arxiv.org/abs/1208.2706v2}{arXiv:1208.2706v2}, Eq.~(5).
+
+\bibitem{Pandya}
+P.~Pandya, O.~Sakarya and M.~Wie\'sniak,
+\emph{Hilbert--Schmidt distance and entanglement witnessing},
+Phys. Rev. A \textbf{102}, 012409 (2020),
+\href{https://doi.org/10.1103/PhysRevA.102.012409}{doi:10.1103/PhysRevA.102.012409};
+\href{https://arxiv.org/abs/1811.06599}{arXiv:1811.06599}, Eq.~(9).
+\end{thebibliography}
+\end{document}

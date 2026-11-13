@@ -1,0 +1,62 @@
+{
+  "files": {
+    "pdf": {
+      "bytes": 99278,
+      "matches_public": null,
+      "path": "paper.pdf",
+      "public_sha256": null,
+      "sha256": "42f725eea09152e88c0b1ffada643678841660a30dbd15a8363eaa32ef66103a"
+    },
+    "source": {
+      "bytes": 15768,
+      "matches_public": null,
+      "path": "manuscript/",
+      "public_sha256": null,
+      "sha256": "ae058574e3248138386a005ed0cdc912b938450bbe292da15000dce463670ec8"
+    }
+  },
+  "source_identity": "Mathesis public projection",
+  "work": {
+    "abstract_text": "We refute the closest-fully-separable-state shape conjecture of Consiglio, Apollaro and Wieśniak, arXiv:2209.01430v2, Appendix A, Eq. (A11), already for three qubits on the low branch at gamma = 11/112. Every fully separable state of the proposed shape has squared Hilbert–Schmidt distance at least 109/23520, whereas an explicit mixture of ten pure product states has distance 417965512477/90316800000000. The counterexample and exact restricted minimum have self-contained written proofs, as do related counterexamples to the full-separability and concurrence comparisons in the posing source. An elementary bound also establishes its large-qubit limit without the conjectured shape.",
+    "authors": [
+      {
+        "affiliation": "ChronoAI Pte Ltd, Singapore",
+        "name": "Haobo Ma"
+      },
+      {
+        "affiliation": "National University of Singapore; ChronoAI Pte Ltd, Singapore",
+        "name": "Wenlin Zhang"
+      }
+    ],
+    "concept_doi": "10.5281/zenodo.23904463",
+    "current_version": 2,
+    "doi": "10.5281/zenodo.23904464",
+    "lean_source": {
+      "revision": "83b70a1d0d6a58bb32521c741805d845d401c5f8",
+      "url": "https://github.com/the-omega-institute/trureturing/blob/83b70a1d0d6a58bb32521c741805d845d401c5f8/D5/S3/Quantum/Entanglement/GeometricMeasure/XMemsClosestSeparableShapeRefutation.lean"
+    },
+    "license": "CC-BY-4.0",
+    "msc": [],
+    "pdf": {
+      "url": "/api/v1/collected-papers/consiglio-apollaro-wiesniak-2022-xmems-css-shape/files/pdf?version=2"
+    },
+    "previous_version": null,
+    "publication": "public",
+    "published_on": "2026-11-05T08:03:33.467197845Z",
+    "record": "consiglio-apollaro-wiesniak-2022-xmems-css-shape",
+    "repository_name": "6aec3855f1c54c784df87e82",
+    "source": {
+      "url": "/api/v1/collected-papers/consiglio-apollaro-wiesniak-2022-xmems-css-shape/files/source?version=2"
+    },
+    "title": "Refuting the X-MEMS closest-separable-state conjecture in arXiv:2209.01430v2, Appendix A, Eq. (A11)",
+    "versions": [
+      {
+        "previous_version": null,
+        "published_on": "2026-11-05T08:03:33.467197845Z",
+        "revision": "2",
+        "version": 2
+      }
+    ],
+    "work": "consiglio-apollaro-wiesniak-2022-xmems-css-shape"
+  }
+}
