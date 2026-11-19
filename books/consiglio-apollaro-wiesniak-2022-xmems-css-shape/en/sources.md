@@ -1,5 +1,3 @@
-<style>pre:has(> code[class*="typst"]) { display: none; }</style>
-
 # Sources and contributions
 
 ## Where this explanation comes from
@@ -31,6 +29,10 @@ Items 4–5 provide the background of matrix-element separability inequalities; 
 5. L. Chen, K. H. Han and S.-H. Kye. *Separability criterion for three-qubit states with a four dimensional norm*. Journal of Physics A **50**, 345303 (2017). [DOI:10.1088/1751-8121/aa7f9a](https://doi.org/10.1088/1751-8121/aa7f9a), Theorem 2.1.
 6. M. Horodecki, P. Horodecki and R. Horodecki. *Separability of mixed states: necessary and sufficient conditions*. Physics Letters A **223**, 1–8 (1996). [DOI:10.1016/S0375-9601(96)00706-2](https://doi.org/10.1016/S0375-9601(96)00706-2).
 
+<section hidden="hidden">
+
 ```{=typst}
 #pagebreak()
 ```
+
+</section>
