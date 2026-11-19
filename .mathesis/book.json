@@ -1,0 +1,55 @@
+{
+  "book": "consiglio-apollaro-wiesniak-2022-xmems-css-shape",
+  "pending_claims": [],
+  "results": {
+    "thm-main": {
+      "claim": "collected:consiglio-apollaro-wiesniak-2022-xmems-css-shape:2:s1",
+      "gids": [],
+      "comparison_verdict": "variant",
+      "compared_public_gid": "D5/S3/Quantum/Entanglement/GeometricMeasure/XMemsClosestSeparableShapeRefutation.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "formalization_request": {
+        "label": "Theorem 1 — restricted-minimum attainment",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/186"
+      }
+    },
+    "thm-refutation": {
+      "claim": "collected:consiglio-apollaro-wiesniak-2022-xmems-css-shape:2:s1",
+      "gids": [
+        "D5/S3/Quantum/Entanglement/GeometricMeasure/XMemsClosestSeparableShapeRefutation.result"
+      ],
+      "comparison_verdict": "same",
+      "compared_public_gid": "D5/S3/Quantum/Entanglement/GeometricMeasure/XMemsClosestSeparableShapeRefutation.result",
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8"
+    },
+    "cor-ppt": {
+      "claim": "collected:consiglio-apollaro-wiesniak-2022-xmems-css-shape:2:s2",
+      "gids": [],
+      "comparison_verdict": "none",
+      "compared_public_gid": null,
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "formalization_request": {
+        "label": "Corollary 2 — cutwise separability",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/187"
+      }
+    },
+    "cor-limit": {
+      "claim": "collected:consiglio-apollaro-wiesniak-2022-xmems-css-shape:2:s3",
+      "gids": [],
+      "comparison_verdict": "none",
+      "compared_public_gid": null,
+      "comparison_commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+      "formalization_request": {
+        "label": "Corollary 3 — corner-coherence bounds and limit",
+        "url": "https://github.com/the-omega-institute/trureturing-requests/issues/188"
+      }
+    }
+  },
+  "stage": "complete",
+  "titles": {
+    "en": "Refuting the X-MEMS closest-separable-state conjecture in arXiv:2209.01430v2, Appendix A, Eq. (A11)",
+    "zh": "Refuting the X-MEMS closest-separable-state conjecture in arXiv:2209.01430v2, Appendix A, Eq. (A11)"
+  },
+  "version": 2,
+  "work": "consiglio-apollaro-wiesniak-2022-xmems-css-shape"
+}

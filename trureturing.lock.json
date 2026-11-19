@@ -1,0 +1,17 @@
+{
+  "schema": "trureturing-books.lock.v1",
+  "repo": "the-omega-institute/trureturing",
+  "branch": "dev",
+  "commit": "8a24ea4e79de962725aab9d9b49cc605fcc211d8",
+  "pinned_at": "2026-11-08T12:32:04Z",
+  "declarations": {
+    "D5/S3/Quantum/Entanglement/GeometricMeasure/XMemsClosestSeparableShapeRefutation.result": {
+      "module": "D5/S3/Quantum/Entanglement/GeometricMeasure/XMemsClosestSeparableShapeRefutation",
+      "name": "D5.S3.Quantum.Entanglement.GeometricMeasure.XMemsClosestSeparableShapeRefutation.result",
+      "kind": "theorem",
+      "statement_id": "sha256:2fcf5435001f7e95bbc05e7561ce02fd11512a63857fad40e6f0f10397055a92",
+      "line": 501,
+      "signature": "theorem result : ¬ claim"
+    }
+  }
+}

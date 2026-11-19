@@ -1,0 +1,258 @@
+\documentclass{beamer}
+\input{tbook-deck}
+\title{最近态为何逃出猜想形状}
+\author{Haobo Ma\inst{1} \and Wenlin Zhang\inst{1,2}}
+\institute{\inst{1}Chrono AI, Singapore \and \inst{2}National University of Singapore, Singapore}
+\date{Version 2}
+\begin{document}
+% Manuscript: Title and abstract
+\begin{frame}\titlepage\note{原论文作者与真实机构。报告依据第 2 版公开论文。}\end{frame}
+% Manuscript: Sections 1--5
+\begin{frame}{提纲}\tableofcontents\note{问题、构造、推论与证据范围。}\end{frame}
+\section{问题}
+% Manuscript: Section 1, Theorem 1
+\begin{frame}{一个可行者，打败整个候选家族}
+\begin{itemize}
+\item 问题：最近的完全可分态，是否总有式 (A11) 的形状？
+\item 答案：否。三个量子比特已经有严格反例。
+\item 机制：形状内的精确下界，加一个更近的乘积态混合。
+\end{itemize}
+\medskip
+原问题：M. Consiglio、T. J. G. Apollaro、M. Wieśniak，
+arXiv:2209.01430v2，附录 A.3。
+\note{开头先说结论。我们不需要求出真正的全局最优值。只要一个可行状态比候选家族中的每个可行状态更近，普遍猜想就失败。这里的距离始终是平方 Hilbert--Schmidt 距离。}
+\end{frame}
+% Manuscript: Section 1, definitions
+\begin{frame}{独立制备，再随机混合}
+\[
+\sigma=\sum_k w_k\,
+|u_k\rangle\langle u_k|\otimes|v_k\rangle\langle v_k|
+\otimes|w_k'\rangle\langle w_k'|,
+\]
+\[
+w_k\ge0,\quad\sum_k w_k=1,\quad
+\|u_k\|=\|v_k\|=\|w_k'\|=1.
+\]
+\begin{itemize}
+\item 每项是三个系统独立制备的乘积态。
+\item 共享经典随机选择，仍然是完全可分态。
+\end{itemize}
+\note{这里的撇号只用于区分第三个局部向量与混合权重。完全可分允许经典相关性。局部混合密度矩阵也可以使用，因为谱分解把它们展开为纯乘积态的混合。}
+\end{frame}
+% Manuscript: Section 1, distance convention
+\begin{frame}{距离就是逐格平方求和}
+\[
+\begin{gathered}
+D_{\mathrm{HS}}(\rho,\sigma)=\sum_{i,j}|\rho_{ij}-\sigma_{ij}|^2,\\
+E_{\mathrm{HS}}(\rho)=\min_{\sigma\in\mathcal S_n}D_{\mathrm{HS}}(\rho,\sigma).
+\end{gathered}
+\]
+\begin{itemize}
+\item 对角元是概率；非对角元是相干信息。
+\item 只抹掉一对角相干 $\gamma,\bar\gamma$，代价为 $2|\gamma|^2$。
+\item $\mathcal S_n$ 紧且凸；最小值存在，最近状态唯一。
+\end{itemize}
+\note{这相当于平面坐标平方距离的高维版本。因为矩阵差是厄米的，迹公式与逐格模平方求和相同。紧性给出存在性，平方范数的严格凸性给出唯一性。}
+\end{frame}
+% Manuscript: Section 1, equations for rho and shape
+\begin{frame}{三个比特的目标与限制}
+\[
+\begin{gathered}
+\operatorname{diag}\rho=(1/5,1/5,1/5,1/5,0,0,0,1/5),\\
+\rho_{000,111}=\rho_{111,000}=11/112.
+\end{gathered}
+\]
+\[
+\begin{gathered}
+\operatorname{diag}S=(A,B,B,B,C,C,C,A),\\
+S_{000,111}=d,\ S_{111,000}=\bar d,
+\end{gathered}
+\]
+\[
+A=a/2,\quad B=b/3,\quad C=(1-a-b)/3.
+\]
+$a,b\ge0$，$a+b\le1$，$|d|\le a/2$；另要求 $S\in\mathcal S_3$。
+\medskip
+\alert{额外的概率相等关系，是要检验的限制。}
+\note{基底为从 $000$ 到 $111$ 的二进制顺序。目标角块的特征值是 $1/5\pm11/112$，因此合法。候选参数条件给出正性和迹为一，完全可分性仍是额外要求。}
+\end{frame}
+% Manuscript: Theorem 1
+\begin{frame}{精确比较：一个可行态严格胜出}
+\begin{bookresult}{thm-main}
+\[
+E_{\mathrm{HS}}(\rho)\le\frac{417965512477}{90316800000000}
+<\frac{109}{23520},
+\]
+\[
+\min_{S(a,b,d)\in\mathcal S_3}D_{\mathrm{HS}}(\rho,S)=\frac{109}{23520}.
+\]
+\end{bookresult}
+\[
+\text{严格改进}=\frac{84926789}{12902400000000}>0.
+\]
+\note{这是原论文完整定理，包括形状内下界的达到性。分两行读长分数。第二行给出受限家族的冠军距离；第一行给出可行竞争者的距离上界。没有宣称竞争者就是全局最近态。}
+\end{frame}
+\section{证明}
+% Manuscript: Section 2, supporting inequality
+\begin{frame}{乘积约束如何传到随机混合}
+记 $p_q=\sigma_{q,q}$、$z=\sigma_{000,111}$。完全可分态满足
+\[
+\begin{split}
+\operatorname{Re}z\le{}&\frac15\left(\frac{p_{001}}6+\frac{3p_{110}}2\right)\\
+&+\frac45\left(\frac{p_{000}}{12}+\frac{p_{011}}{12}
++\frac{3p_{101}}4+\frac{3p_{110}}4\right).
+\end{split}
+\]
+\begin{enumerate}
+\item 局部正性限制角相干的大小。
+\item 加权算术--几何平均给出两个线性上界。
+\item 线性上界对凸混合仍然成立。
+\end{enumerate}
+\note{详细的两个算术--几何平均推导在书中证明第一步。线性化后的不等式可以穿过混合，而非线性乘积公式不能直接穿过混合。这是本步的要点。}
+\end{frame}
+% Manuscript: Section 2, square completion
+\begin{frame}{把距离配成非负项}
+$x=\operatorname{Re}d$、$y=\operatorname{Im}d$，令
+\[
+h=A/15+B/10+3C/2-x\ge0.
+\]
+\[
+\begin{aligned}
+D_{\mathrm{HS}}(\rho,S)={}&\frac{109}{23520}+2(A-3/16)^2\\
+&+3(B-3/16)^2+3(C-1/48)^2\\
+&+2(x-1/16)^2+2y^2+h/7.
+\end{aligned}
+\]
+适用于复数 $d$、零参数及边界；没有除去任何参数。
+\note{每一个余项都非负，因而得到对所有形状内可分态的统一下界。注意 $h$ 来自可分性，不是任意正矩阵自动满足的关系。等号要求所有平方和 $h$ 都为零。}
+\end{frame}
+% Manuscript: Section 2, phase average
+\begin{frame}{九个独立方案，保留一对相干}
+\[
+v(t,r)=\sqrt t|0\rangle+\omega^r\sqrt{1-t}|1\rangle,
+\quad\omega=e^{2\pi i/3},\quad0\le t\le1.
+\]
+\[
+T(t_1,t_2,t_3)=\frac19\sum_{r,s=0}^2|V_{rs}\rangle\langle V_{rs}|,
+\]
+\[
+V_{rs}=v(t_1,r)\otimes v(t_2,s)\otimes v(t_3,-r-s).
+\]
+相位平均只留下对角线与相反两角。
+\[
+S_*=\frac56T(9/10,1/2,1/2)+\frac16|111\rangle\langle111|.
+\]
+\note{相位差的两个字符平均要求三个比特差模三相等。差只在 $\{-1,0,1\}$ 中，所以整数也相等，只可能留下对角或相反两角。这个混合等于 $S(3/8,9/16,1/16)$，故达到下界。}
+\end{frame}
+% Manuscript: Section 3, explicit competitor
+\begin{frame}{只改两个概率，就越过限制}
+\[
+\tau=\frac56T(9/10,199/400,199/400)+\frac16|111\rangle\langle111|.
+\]
+\begin{itemize}
+\item 九个乘积投影各占 $5/54$，再加一个占 $1/6$。
+\item 概率 $1/2$ 改为 $199/400$，仍然完全可分。
+\item 仍保留角相干支撑、第二与第三比特交换对称性。
+\item 额外的概率分组等式被打破，距离严格下降。
+\end{itemize}
+\[
+D_{\mathrm{HS}}(\rho,\tau)=\frac{417965512477}{90316800000000}.
+\]
+\note{这一扰动只改变局部向量，不改变权重或乘积结构。可行性来自显式分解，不来自 PPT 测试。矩阵条目均为有理数，尽管构造中的向量含平方根和三次单位根。}
+\end{frame}
+% Manuscript: Section 3, symmetry discussion
+\begin{frame}{合法的对称化需要两件事}
+\begin{enumerate}
+\item 保持目标 $\rho$ 不变。
+\item 保持完全可分可行集不变。
+\end{enumerate}
+只交换 $000$ 与 $111$ 满足第一件，却不满足第二件：
+\[
+\frac{|000\rangle+|001\rangle}{\sqrt2}
+\longmapsto\frac{|111\rangle+|001\rangle}{\sqrt2}.
+\]
+左侧为乘积态，右侧跨第一个比特的割纠缠。
+\medskip
+局部相位与交换第二、第三个比特则可安全平均。
+\note{目标不变不代表可行集合不变。右侧两个项在第一个比特和其余系统两边都正交，因此 Schmidt 秩为二。这给出具体障碍。可行的相位平均仍支持稀疏角相干结构。}
+\end{frame}
+\section{推论}
+% Manuscript: Corollary 2, Section 4.1
+\begin{frame}{每个割可分，不等于完全可分}
+\begin{bookresult}{cor-ppt}
+\[
+\eta=S(5/16,5/8,33/512)
+\]
+在每个一对二分割下 PPT 且可分，但不完全可分。
+\end{bookresult}
+\[
+\text{部分转置角块行列式}=\frac{439}{2359296}>0.
+\]
+全可分约束要求 $d\le1/16$，但 $33/512=1/16+1/512$。
+\medskip
+每割的相干扇区为 $2\otimes2$；使用两比特 PPT 充要准则。
+\note{不同割的可分分解可以不同。没有一个共同的三方完全可分分解。PPT 充分性只用在每个割的二维乘二维相干扇区，并非用于一般二维乘四维状态。}
+\end{frame}
+% Manuscript: Corollary 3, Section 4.3
+\begin{frame}{不用形状猜想，也能证明极限}
+\begin{bookresult}{cor-limit}
+对 $n\ge1$，设 $X_n$ 为 $n$ 比特密度矩阵，非对角元仅可能为相反两角 $\gamma_n,\bar\gamma_n$。
+\[
+2\max\{|\gamma_n|-2^{-n},0\}^2\le E_{\mathrm{HS}}(X_n),
+\]
+\[
+E_{\mathrm{HS}}(X_n)\le2|\gamma_n|^2.
+\]
+若 $|\gamma_n|\to g$，则 $E_{\mathrm{HS}}(X_n)\to2g^2$。
+\end{bookresult}
+局部角元 $\le1/2$；乘积角元 $\le2^{-n}$；凸混合保留此界。
+\note{上界由抹掉角元得到。下界只保留两个角差的平方。因 $2^{-n}\to0$，上下界有同一极限。零相干和单比特边界均适用。这个结论允许任意对角概率。}
+\end{frame}
+\section{范围}
+% Manuscript: Section 5, formal scope
+\begin{frame}{已形式化的逻辑结论}
+\begin{bookresult}{thm-refutation}
+以下断言为假：每个 $n\ge2$、$|\gamma|\le1/(2^{n-1}+1)$ 的低分支 $X_n(\gamma)$，都有候选形状内的最近完全可分态。
+\end{bookresult}
+\begin{itemize}
+\item 精确的全参数目标及候选形状见附录。
+\item 证明见证：$n=3$、$\gamma=11/112$。
+\item 完整数值定理中的达到性，另有书面证明。
+\end{itemize}
+\note{绿色结论是普遍形状断言的否定。不要把该结论扩大为全部数值定理或两个推论都已形式化。候选状态还必须满足完整的参数条件与对所有完全可分竞争者的最小性。}
+\end{frame}
+% Manuscript: Section 5, remaining question and bibliography
+\begin{frame}{接下来的数学问题}
+\begin{itemize}
+\item 本例 $\rho$ 的真正全局最小距离是多少？
+\item 去掉多余概率等式后，怎样刻画有限 $n$ 的最近态？
+\end{itemize}
+\medskip
+原论文：Haobo Ma 与 Wenlin Zhang，第 2 版。
+\href{https://doi.org/10.5281/zenodo.23904464}{DOI:10.5281/zenodo.23904464}。
+\medskip
+原问题：Consiglio、Apollaro、Wieśniak，PRA \textbf{106}, 062413 (2022)。
+\medskip
+两比特 PPT 准则：M.、P.、R. Horodecki (1996)。
+\note{最后保留真正还没有求出的全局问题。本文已经完成的是对形状猜想的严格反例。形式化贡献可复用已有分离不等式和相位平均，分别补齐达到性、每割可分例子和大比特数极限。}
+\end{frame}
+\appendix
+\section{附录}
+% Manuscript: Section 1; pinned Lean claim definitions
+\begin{frame}{全参数定义}
+令 $N=2^{n-1}$，$n\ge2$。低分支目标：
+\begin{itemize}
+\item $X_{q,q}=1/(N+1)$，当 $q_1=0$ 或 $q=1^n$；否则为 $0$。
+\item $X_{0^n,1^n}=\gamma$, $X_{1^n,0^n}=\bar\gamma$; $|\gamma|\le1/(N+1)$.
+\end{itemize}
+候选形状：
+\begin{itemize}
+\item 端点概率为 $a/2$；其余 $q_1=0$ 概率为 $b/(N-1)$；剩余概率为 $(1-a-b)/(N-1)$。
+\item 相反两角为 $d,\bar d$，其余非对角元为 $0$。
+\item $a,b\in[0,1]$, $a+b\le1$, $|d|\le a/2$；并要求完全可分。
+\end{itemize}
+\note{最小性是对所有完全可分竞争者而言，不只对形状家族。各式中的分母在 $n\ge2$ 时均有定义。}
+\end{frame}
+% Manuscript: Section 5, statement correspondence
+\FormalVerification
+\end{document}

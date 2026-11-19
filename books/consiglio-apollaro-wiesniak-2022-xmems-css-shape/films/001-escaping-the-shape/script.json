@@ -1,0 +1,144 @@
+{
+  "voice": "af_heart",
+  "speed": 0.94,
+  "say": {
+    "qubits": "cue bits",
+    "qubit": "cue bit",
+    "Lean": "Leen",
+    "Wieśniak": "Vyesh nyak"
+  },
+  "music": {
+    "bpm": 80,
+    "progression": "a-minor"
+  },
+  "scenes": [
+    {
+      "id": "question",
+      "name": "THE QUESTION",
+      "lead": 1.0,
+      "tail": 1.0,
+      "lines": [
+        [
+          "Can the nearest simple quantum state always have a tidy proposed shape? This paper gives an exact counterexample with just three qubits.",
+          "最近的简单量子态，是否总能具有一种整齐的猜想形状？这篇论文用三个量子比特给出精确反例。"
+        ],
+        [
+          "A fully separable state is made by randomly choosing among independent preparation recipes. Shared classical randomness is allowed.",
+          "完全可分态可以由若干独立制备方案随机混合得到，允许共享经典随机信息。"
+        ],
+        [
+          "Distance means adding the squared differences between corresponding matrix entries. A smaller sum means a closer state.",
+          "距离是对应矩阵元之差的模平方之和。和越小，状态越近。"
+        ]
+      ]
+    },
+    {
+      "id": "shape",
+      "name": "THE RESTRICTION",
+      "lead": 1.0,
+      "tail": 1.0,
+      "lines": [
+        [
+          "The target has five diagonal probabilities equal to one fifth, and only one pair of opposite corner coherences.",
+          "目标有五个等于五分之一的对角概率，非对角元只有一对相反角相干。"
+        ],
+        [
+          "The proposed family groups its eight probabilities into two equal endpoints and two groups of three. It must also be fully separable.",
+          "候选家族把八个概率分成相等的两个端点及两个三元组，还必须满足完全可分。"
+        ],
+        [
+          "Inside this family, the smallest squared distance is exactly one hundred nine over twenty three thousand five hundred twenty.",
+          "在这个家族内，最小平方距离精确等于一百零九除以二万三千五百二十。"
+        ]
+      ]
+    },
+    {
+      "id": "bound",
+      "name": "WHY THE BOUND HOLDS",
+      "lead": 1.0,
+      "tail": 1.0,
+      "lines": [
+        [
+          "Local positivity limits corner coherence. Arithmetic and geometric means turn this into a linear inequality that survives random mixing.",
+          "局部正性限制角相干；算术平均与几何平均不等式给出能传递到随机混合的线性约束。"
+        ],
+        [
+          "Complete the squared distance into a constant, five nonnegative square terms, and a nonnegative remainder. Every feasible state of the shape obeys the bound.",
+          "把平方距离配成常数、五个非负平方项以及一个非负余项。形状内每个可行态都满足下界。"
+        ],
+        [
+          "An explicit product-state mixture makes all these extra terms vanish, so the lower bound is attained.",
+          "一个显式的乘积态混合使所有额外项为零，因此下界确实达到。"
+        ]
+      ]
+    },
+    {
+      "id": "phases",
+      "name": "BUILDING A FEASIBLE STATE",
+      "lead": 1.0,
+      "tail": 1.0,
+      "lines": [
+        [
+          "Use local zero probabilities nine tenths, one half, and one half. Choose phases on three-position clocks: turn the first two hands freely and let the third cancel their sum.",
+          "局部零结果概率取十分之九、二分之一、二分之一。在三等分钟面上选择相位：前两只指针自由转动，第三只抵消它们的相位和。"
+        ],
+        [
+          "Average the nine choices. Unwanted coherences cancel, while the diagonal and opposite corners remain. Each term is still a product state.",
+          "平均九种选择，不需要的相干抵消，对角线与相反两角留下。每一项仍然是乘积态。"
+        ],
+        [
+          "Give these nine recipes weight five over fifty four each, and add the basic all-one state with weight one sixth.",
+          "给九个方案各五十四分之五的权重，再加入权重六分之一的全一基本态。"
+        ]
+      ]
+    },
+    {
+      "id": "escape",
+      "name": "THE SMALL CHANGE",
+      "lead": 1.0,
+      "tail": 1.0,
+      "lines": [
+        [
+          "Now change the second and third local probabilities from one half to one hundred ninety nine over four hundred.",
+          "现在把第二、第三个局部概率从二分之一改为四百分之一百九十九。"
+        ],
+        [
+          "The recipes remain independent and the weights stay fixed. The new state is therefore fully separable.",
+          "方案仍然独立，权重保持不变，因此新状态仍然完全可分。"
+        ],
+        [
+          "But its populations escape the proposed equal groups. Its squared distance is smaller by the strictly positive rational number shown here.",
+          "但其概率离开了猜想的相等分组，平方距离减小了画面中严格为正的有理数。"
+        ],
+        [
+          "One feasible challenger beats every state of the proposed shape. We do not need to know the actual global optimum to refute the conjecture.",
+          "一个可行者就打败了猜想形状中的每个状态。推翻猜想不需要先知道真正的全局最优值。"
+        ]
+      ]
+    },
+    {
+      "id": "scope",
+      "name": "WHAT THE EXAMPLE TEACHES",
+      "lead": 1.0,
+      "tail": 1.0,
+      "lines": [
+        [
+          "The universal shape conjecture is false. This exact negation is the public Lean theorem, proved using the three-qubit rational challenger.",
+          "普遍形状猜想不成立。这一精确否定是公开 Lean 定理的结论，证明使用了三比特有理数竞争者。"
+        ],
+        [
+          "The challenger keeps the sparse corner pattern. What fails is the extra equality of populations, not the corner support itself.",
+          "竞争者保留了稀疏角相干结构。失效的是额外的概率相等关系，而不是角相干支撑本身。"
+        ],
+        [
+          "A symmetry reduction must preserve both the target and the feasible set. The true nearest state for this target remains a further question.",
+          "对称化必须同时保持目标与可行集。本例真正的最近态仍是后续问题。"
+        ],
+        [
+          "Haobo Ma and Wenlin Zhang answer the shape conjecture posed by the original authors.",
+          "Haobo Ma 与 Wenlin Zhang 的论文回答了原作者的形状猜想。"
+        ]
+      ]
+    }
+  ]
+}

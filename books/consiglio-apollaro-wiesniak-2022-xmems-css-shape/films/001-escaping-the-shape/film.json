@@ -1,0 +1,29 @@
+{
+  "duration": "3:05",
+  "id": "001-escaping-the-shape",
+  "lean": [
+    "D5/S3/Quantum/Entanglement/GeometricMeasure/XMemsClosestSeparableShapeRefutation.result"
+  ],
+  "narration": {
+    "engine": "Kokoro-82M v1.0 (onnx)",
+    "language": "en",
+    "voice": "af_heart"
+  },
+  "outputs": {
+    "cover": "consiglio-apollaro-wiesniak-2022-xmems-css-shape_001_cover.jpg",
+    "narrated_720p": "consiglio-apollaro-wiesniak-2022-xmems-css-shape_001_720p_narrated.mp4"
+  },
+  "publication_basis": "pinned",
+  "released": "2026-11-15",
+  "resolution": "1280x720@30",
+  "style": "trureturing cyberpunk · deterministic canvas",
+  "subject": "https://github.com/the-omega-institute/trureturing",
+  "subtitles": [
+    "zh",
+    "en"
+  ],
+  "summary": "A ten-product-state mixture escapes population equalities and beats the exact restricted minimum.",
+  "summary_zh": "一个十乘积态混合逃出概率相等限制，严格胜过形状内的精确最小值。",
+  "title": "Escaping the conjectured shape",
+  "title_zh": "逃出猜想形状"
+}

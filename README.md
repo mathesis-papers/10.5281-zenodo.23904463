@@ -26,3 +26,39 @@ Haobo Ma, Wenlin Zhang (2026). Refuting the X-MEMS closest-separable-state conje
 ## Contributions
 
 Original authors are listed above. Formalization contributors and attribution are retained in `formalization/nodes.json`; repository pull requests do not confer verification or credit. Submit formalization attempts through the Mathesis attempt path described in [CONTRIBUTING.md](CONTRIBUTING.md).
+
+<!-- Mathesis generated repository guide; refresh with paper.py front. -->
+
+## Reading and materials
+
+[Paper site](https://papers.trureturing.org/10.5281-zenodo.23904463/) · [Frozen PDF](paper.pdf) · [Citation](CITATION.cff)
+
+[中文阅读](https://papers.trureturing.org/10.5281-zenodo.23904463/consiglio-apollaro-wiesniak-2022-xmems-css-shape/zh/) · [Read in English](https://papers.trureturing.org/10.5281-zenodo.23904463/consiglio-apollaro-wiesniak-2022-xmems-css-shape/en/)
+
+[Slides](https://papers.trureturing.org/10.5281-zenodo.23904463/consiglio-apollaro-wiesniak-2022-xmems-css-shape/slides/) ([sources](books/consiglio-apollaro-wiesniak-2022-xmems-css-shape/slides/)) · [Videos](https://papers.trureturing.org/10.5281-zenodo.23904463/consiglio-apollaro-wiesniak-2022-xmems-css-shape/films/) ([sources](books/consiglio-apollaro-wiesniak-2022-xmems-css-shape/films/))
+
+These are publication routes; available built materials are inventoried in [mathesis-materials.json](https://papers.trureturing.org/10.5281-zenodo.23904463/mathesis-materials.json).
+
+## Book and formalization
+
+Catalog formalization status above is separate from the statement comparisons below. A nearby declaration does not verify the complete written result.
+
+| Book result | Comparison with formal base | Compared declaration |
+|---|---|---|
+| `thm-main` | variant | `D5/S3/Quantum/Entanglement/GeometricMeasure/XMemsClosestSeparableShapeRefutation.result` |
+| `thm-refutation` | same | `D5/S3/Quantum/Entanglement/GeometricMeasure/XMemsClosestSeparableShapeRefutation.result` |
+| `cor-ppt` | none | — |
+| `cor-limit` | none | — |
+
+Book stage: **complete**; 0 pending claims. [Statement comparisons](.mathesis/REVIEW.md).
+
+## Repository map
+
+| Zone | Location |
+|---|---|
+| Paper record | `paper.json`, `CITATION.cff`, `paper.pdf`, `manuscript/`, `formalization/nodes.json`, `LICENSES/`, `.mathesis/` |
+| Content | `books/consiglio-apollaro-wiesniak-2022-xmems-css-shape/`: Chinese/English text, figures, visualizations, videos, slides, assets |
+| Machinery | Upstream and layer managed paths; update with `tbook template update` |
+| Repository front | This README, changelog, contribution guide, licence, project/site/pin configuration, `template.d/` |
+
+See [the enforced layout](docs/layer-mathesis/LAYOUT.md). Preparation run records and built outputs stay outside the committed tree.

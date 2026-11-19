@@ -1,0 +1,258 @@
+\documentclass{beamer}
+\input{tbook-deck}
+\title{Escaping the conjectured closest-state shape}
+\author{Haobo Ma\inst{1} \and Wenlin Zhang\inst{1,2}}
+\institute{\inst{1}Chrono AI, Singapore \and \inst{2}National University of Singapore, Singapore}
+\date{Version 2}
+\begin{document}
+% Manuscript: Title and abstract
+\begin{frame}\titlepage\note{Original paper authors and their institutions. This talk follows the public version 2 paper.}\end{frame}
+% Manuscript: Sections 1--5
+\begin{frame}{Outline}\tableofcontents\note{Question, construction, consequences and evidence scope.}\end{frame}
+\section{Question}
+% Manuscript: Section 1, Theorem 1
+\begin{frame}{One challenger beats an entire proposed family}
+\begin{itemize}
+\item Question: must a closest fully separable state have shape (A11)?
+\item Answer: no. Three qubits already give an exact counterexample.
+\item Mechanism: a sharp restricted lower bound and a closer product-state mixture.
+\end{itemize}
+\medskip
+Posing source: M. Consiglio, T. J. G. Apollaro, M. Wieśniak,
+arXiv:2209.01430v2, Appendix A.3.
+\note{Lead with the answer. We need not solve the global optimization problem. A single feasible state closer than every feasible member of the proposed family refutes the universal claim. Every distance in this talk is squared Hilbert--Schmidt distance.}
+\end{frame}
+% Manuscript: Section 1, definitions
+\begin{frame}{Independent preparation, then random mixing}
+\[
+\sigma=\sum_k w_k\,
+|u_k\rangle\langle u_k|\otimes|v_k\rangle\langle v_k|
+\otimes|w_k'\rangle\langle w_k'|,
+\]
+\[
+w_k\ge0,\quad\sum_k w_k=1,\quad
+\|u_k\|=\|v_k\|=\|w_k'\|=1.
+\]
+\begin{itemize}
+\item Each term is prepared independently at three benches.
+\item A shared classical random choice gives full separability.
+\end{itemize}
+\note{The prime distinguishes the third local vector from the mixture weight. Full separability allows classical correlations. Products of mixed local states give the same convex hull by spectral decomposition.}
+\end{frame}
+% Manuscript: Section 1, distance convention
+\begin{frame}{Distance is an entrywise sum of squares}
+\[
+\begin{gathered}
+D_{\mathrm{HS}}(\rho,\sigma)=\sum_{i,j}|\rho_{ij}-\sigma_{ij}|^2,\\
+E_{\mathrm{HS}}(\rho)=\min_{\sigma\in\mathcal S_n}D_{\mathrm{HS}}(\rho,\sigma).
+\end{gathered}
+\]
+\begin{itemize}
+\item Diagonal entries are probabilities; other entries carry coherence.
+\item Erasing one corner pair $\gamma,\bar\gamma$ costs $2|\gamma|^2$.
+\item $\mathcal S_n$ is compact and convex: a unique nearest state exists.
+\end{itemize}
+\note{This is the coordinate-plane squared distance in more dimensions. For Hermitian differences, the trace formula equals this entrywise sum. Compactness gives existence and strict convexity of the squared norm gives uniqueness.}
+\end{frame}
+% Manuscript: Section 1, equations for rho and shape
+\begin{frame}{A three-qubit target and a restricted shape}
+\[
+\begin{gathered}
+\operatorname{diag}\rho=(1/5,1/5,1/5,1/5,0,0,0,1/5),\\
+\rho_{000,111}=\rho_{111,000}=11/112.
+\end{gathered}
+\]
+\[
+\begin{gathered}
+\operatorname{diag}S=(A,B,B,B,C,C,C,A),\\
+S_{000,111}=d,\ S_{111,000}=\bar d,
+\end{gathered}
+\]
+\[
+A=a/2,\quad B=b/3,\quad C=(1-a-b)/3.
+\]
+$a,b\ge0$, $a+b\le1$, $|d|\le a/2$; additionally $S\in\mathcal S_3$.
+\medskip
+\alert{The extra population equalities are the restriction to test.}
+\note{Use binary order from $000$ to $111$. The target corner block has eigenvalues $1/5\pm11/112$, so it is positive. The shape parameter conditions ensure positivity and trace one, while full separability remains an additional requirement.}
+\end{frame}
+% Manuscript: Theorem 1
+\begin{frame}{Exact comparison: a feasible challenger wins}
+\begin{bookresult}{thm-main}
+\[
+E_{\mathrm{HS}}(\rho)\le\frac{417965512477}{90316800000000}
+<\frac{109}{23520},
+\]
+\[
+\min_{S(a,b,d)\in\mathcal S_3}D_{\mathrm{HS}}(\rho,S)=\frac{109}{23520}.
+\]
+\end{bookresult}
+\[
+\text{strict improvement}=\frac{84926789}{12902400000000}>0.
+\]
+\note{This is the complete manuscript theorem, including restricted-minimum attainment. Read the long fractions in separate rows. The restricted champion's distance is on the second row, and a feasible competitor supplies the first upper bound. The competitor is not claimed to be globally closest.}
+\end{frame}
+\section{Proof}
+% Manuscript: Section 2, supporting inequality
+\begin{frame}{From product constraints to mixtures}
+Write $p_q=\sigma_{q,q}$, $z=\sigma_{000,111}$. Full separability implies
+\[
+\begin{split}
+\operatorname{Re}z\le{}&\frac15\left(\frac{p_{001}}6+\frac{3p_{110}}2\right)\\
+&+\frac45\left(\frac{p_{000}}{12}+\frac{p_{011}}{12}
++\frac{3p_{101}}4+\frac{3p_{110}}4\right).
+\end{split}
+\]
+\begin{enumerate}
+\item Local positivity bounds the corner magnitude.
+\item Weighted arithmetic--geometric means give two linear bounds.
+\item Linear bounds pass to convex mixtures.
+\end{enumerate}
+\note{The book's first proof step derives both weighted arithmetic--geometric mean bounds. The linear inequalities pass through mixing; a nonlinear product formula would not automatically do so. That is the important inference.}
+\end{frame}
+% Manuscript: Section 2, square completion
+\begin{frame}{Complete the distance into nonnegative terms}
+Let $x=\operatorname{Re}d$, $y=\operatorname{Im}d$, and
+\[
+h=A/15+B/10+3C/2-x\ge0.
+\]
+\[
+\begin{aligned}
+D_{\mathrm{HS}}(\rho,S)={}&\frac{109}{23520}+2(A-3/16)^2\\
+&+3(B-3/16)^2+3(C-1/48)^2\\
+&+2(x-1/16)^2+2y^2+h/7.
+\end{aligned}
+\]
+Complex $d$, zero parameters and boundaries are included. No parameter is divided out.
+\note{Every remainder term is nonnegative, giving a uniform bound over all separable states of the shape. The sign of $h$ comes from separability, not just matrix positivity. Equality requires all squares and $h$ to vanish.}
+\end{frame}
+% Manuscript: Section 2, phase average
+\begin{frame}{Nine independent recipes retain one corner pair}
+\[
+v(t,r)=\sqrt t|0\rangle+\omega^r\sqrt{1-t}|1\rangle,
+\quad\omega=e^{2\pi i/3},\quad0\le t\le1.
+\]
+\[
+T(t_1,t_2,t_3)=\frac19\sum_{r,s=0}^2|V_{rs}\rangle\langle V_{rs}|,
+\]
+\[
+V_{rs}=v(t_1,r)\otimes v(t_2,s)\otimes v(t_3,-r-s).
+\]
+Phase averaging leaves only the diagonal and opposite corners.
+\[
+S_*=\frac56T(9/10,1/2,1/2)+\frac16|111\rangle\langle111|.
+\]
+\note{Two character averages force all three bit differences to agree modulo three. Since the differences lie in $\{-1,0,1\}$, they agree as integers. Only diagonal and opposite-corner entries remain. The mixture is $S(3/8,9/16,1/16)$ and attains the bound.}
+\end{frame}
+% Manuscript: Section 3, explicit competitor
+\begin{frame}{Change two probabilities and escape the restriction}
+\[
+\tau=\frac56T(9/10,199/400,199/400)+\frac16|111\rangle\langle111|.
+\]
+\begin{itemize}
+\item Nine product projectors have weight $5/54$ each; one has $1/6$.
+\item Change $1/2$ to $199/400$: full separability is preserved.
+\item Corner support and interchange of qubits two and three survive.
+\item Extra population equalities fail, and the distance decreases.
+\end{itemize}
+\[
+D_{\mathrm{HS}}(\rho,\tau)=\frac{417965512477}{90316800000000}.
+\]
+\note{The perturbation changes the local vectors while keeping the weights and product structure. Feasibility comes from an explicit decomposition, not a PPT test. The resulting entries are rational although the vectors involve square roots and cube roots of unity.}
+\end{frame}
+% Manuscript: Section 3, symmetry discussion
+\begin{frame}{A valid symmetry reduction needs two invariances}
+\begin{enumerate}
+\item Fix the target $\rho$.
+\item Preserve the fully separable feasible set.
+\end{enumerate}
+Swapping only $000$ and $111$ satisfies the first but fails the second:
+\[
+\frac{|000\rangle+|001\rangle}{\sqrt2}
+\longmapsto\frac{|111\rangle+|001\rangle}{\sqrt2}.
+\]
+The left side is a product; the right side is entangled across the first-qubit cut.
+\medskip
+Local phases and interchange of qubits two and three are safe.
+\note{Target invariance does not imply feasible-set invariance. On the right the two terms are orthogonal on both sides of the first-qubit cut, so the Schmidt rank is two. Valid phase averaging still supports the sparse corner structure.}
+\end{frame}
+\section{Consequences}
+% Manuscript: Corollary 2, Section 4.1
+\begin{frame}{Separable across every cut is not fully separable}
+\begin{bookresult}{cor-ppt}
+\[
+\eta=S(5/16,5/8,33/512)
+\]
+It is PPT and separable across each one-versus-two cut, but not fully separable.
+\end{bookresult}
+\[
+\text{partial-transpose block determinant}=\frac{439}{2359296}>0.
+\]
+Full separability requires $d\le1/16$; $33/512=1/16+1/512$.
+\medskip
+Each coherent sector is $2\otimes2$: apply the two-qubit PPT criterion.
+\note{The cutwise separable decompositions may differ. There is no common fully separable three-party decomposition. PPT sufficiency is used only on each two-by-two coherent sector, not on an arbitrary two-by-four state.}
+\end{frame}
+% Manuscript: Corollary 3, Section 4.3
+\begin{frame}{A limit that survives without the shape conjecture}
+\begin{bookresult}{cor-limit}
+For $n\ge1$, let $X_n$ be an $n$-qubit density matrix whose only possible off-diagonal entries are opposite corners $\gamma_n,\bar\gamma_n$.
+\[
+2\max\{|\gamma_n|-2^{-n},0\}^2\le E_{\mathrm{HS}}(X_n),
+\]
+\[
+E_{\mathrm{HS}}(X_n)\le2|\gamma_n|^2.
+\]
+If $|\gamma_n|\to g$, then $E_{\mathrm{HS}}(X_n)\to2g^2$.
+\end{bookresult}
+Local corners $\le1/2$; product corners $\le2^{-n}$; mixing preserves the bound.
+\note{Erase the corners for the upper bound. Keep only the two corner differences for the lower bound. Since $2^{-n}\to0$, squeezing gives the limit. Zero coherence and the single-qubit boundary are included. Arbitrary diagonal populations are allowed.}
+\end{frame}
+\section{Scope}
+% Manuscript: Section 5, formal scope
+\begin{frame}{The formalized logical conclusion}
+\begin{bookresult}{thm-refutation}
+It is false that every low-branch $X_n(\gamma)$ with $n\ge2$, $|\gamma|\le1/(2^{n-1}+1)$ has a closest fully separable state of the proposed shape.
+\end{bookresult}
+\begin{itemize}
+\item The full target and shape definitions are in the appendix.
+\item Proof witness: $n=3$, $\gamma=11/112$.
+\item Restricted-minimum attainment additionally has a written proof.
+\end{itemize}
+\note{The formal conclusion is the negation of the universal shape assertion. It does not state the entire numerical theorem or either corollary. The candidate must satisfy all parameter constraints and minimize against every fully separable competitor.}
+\end{frame}
+% Manuscript: Section 5, remaining question and bibliography
+\begin{frame}{The next mathematical questions}
+\begin{itemize}
+\item What is the actual global minimum for this $\rho$?
+\item Without the extra population equalities, how can finite-$n$ closest states be described?
+\end{itemize}
+\medskip
+Paper: Haobo Ma and Wenlin Zhang, version 2.
+\href{https://doi.org/10.5281/zenodo.23904464}{DOI:10.5281/zenodo.23904464}.
+\medskip
+Posing source: Consiglio, Apollaro, Wieśniak, PRA \textbf{106}, 062413 (2022).
+\medskip
+Two-qubit PPT criterion: M., P., R. Horodecki (1996).
+\note{End with the unresolved global optimization question. The completed contribution is an exact counterexample to the proposed shape. Formal contributors can reuse the inequality and phase average for attainment, the cutwise example and the large-qubit limit.}
+\end{frame}
+\appendix
+\section{Appendix}
+% Manuscript: Section 1; pinned Lean claim definitions
+\begin{frame}{Full parameter definitions}
+Put $N=2^{n-1}$, $n\ge2$. The low-branch target has:
+\begin{itemize}
+\item $X_{q,q}=1/(N+1)$ if $q_1=0$ or $q=1^n$; otherwise $0$.
+\item $X_{0^n,1^n}=\gamma$, $X_{1^n,0^n}=\bar\gamma$; $|\gamma|\le1/(N+1)$.
+\end{itemize}
+The proposed shape has:
+\begin{itemize}
+\item Endpoint populations $a/2$; other $q_1=0$ populations $b/(N-1)$; remaining populations $(1-a-b)/(N-1)$.
+\item Opposite corners $d,\bar d$; all other off-diagonal entries $0$.
+\item $a,b\in[0,1]$, $a+b\le1$, $|d|\le a/2$; full separability.
+\end{itemize}
+\note{Minimality is against all fully separable competitors, not just the proposed family. All denominators are defined because $n\ge2$.}
+\end{frame}
+% Manuscript: Section 5, statement correspondence
+\FormalVerification
+\end{document}
