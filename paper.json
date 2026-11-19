@@ -2,16 +2,16 @@
   "files": {
     "pdf": {
       "bytes": 99278,
-      "matches_public": null,
+      "matches_public": true,
       "path": "paper.pdf",
-      "public_sha256": null,
+      "public_sha256": "42f725eea09152e88c0b1ffada643678841660a30dbd15a8363eaa32ef66103a",
       "sha256": "42f725eea09152e88c0b1ffada643678841660a30dbd15a8363eaa32ef66103a"
     },
     "source": {
       "bytes": 15768,
-      "matches_public": null,
+      "matches_public": true,
       "path": "source.archive",
-      "public_sha256": null,
+      "public_sha256": "ae058574e3248138386a005ed0cdc912b938450bbe292da15000dce463670ec8",
       "sha256": "ae058574e3248138386a005ed0cdc912b938450bbe292da15000dce463670ec8"
     }
   },
@@ -38,6 +38,8 @@
     "license": "CC-BY-4.0",
     "msc": [],
     "pdf": {
+      "bytes": 99278,
+      "sha256": "42f725eea09152e88c0b1ffada643678841660a30dbd15a8363eaa32ef66103a",
       "url": "/api/v1/collected-papers/consiglio-apollaro-wiesniak-2022-xmems-css-shape/files/pdf?version=2"
     },
     "previous_version": null,
@@ -46,6 +48,8 @@
     "record": "consiglio-apollaro-wiesniak-2022-xmems-css-shape",
     "repository_name": "10.5281-zenodo.23904463",
     "source": {
+      "bytes": 15768,
+      "sha256": "ae058574e3248138386a005ed0cdc912b938450bbe292da15000dce463670ec8",
       "url": "/api/v1/collected-papers/consiglio-apollaro-wiesniak-2022-xmems-css-shape/files/source?version=2"
     },
     "title": "Refuting the X-MEMS closest-separable-state conjecture in arXiv:2209.01430v2, Appendix A, Eq. (A11)",
